@@ -46,12 +46,8 @@ class HomeVC: BaseListVC,UISearchBarDelegate{
         catch{
             print(error)
         }
-        
-        //viewModel
-        ServiceManager.doRequest(url:ServiceProperties.FORECAST,prm: prm, success: { (_ allResponse : AllResponse) in
+        viewModel.getWheatherForcast(prm: prm) { (allResponse) in
             self.navigateToTimeIntervalsPage(allResponse: allResponse)
-        }) { (error) in
-            print(error)
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

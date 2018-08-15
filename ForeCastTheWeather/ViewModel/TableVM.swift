@@ -30,21 +30,15 @@ class TableVM: NSObject {
         self.cleearDataList()
         self.dataList = list
     }
-//    func retrieveData(prm:[String:Any]){
-//
-//        ServiceManager.doRequest(url: ServiceProperties.FORECAST, method: <#T##HTTPMethod?#>, prm: <#T##[String : Any]#>, success: <#T##(Decodable & Encodable) -> ()#>, failure: <#T##(String) -> ()#>)
-//        self.cleearDataList()
-//        entType.getList(prm: prm, result: { (list) in
-//            //            print(list)
-//            if list != nil{
-//                self.dataList = list as! [Codable]
-//                //                self.dataList.append(list as! BaseEntity)
-//            }
-//            self.callBack()
-//        }) {
-//            //error için
-//        }
-//    }
+    
+    func getWheatherForcast(prm:[String:Any],success: @escaping (_ response: AllResponse) -> ()){
+        
+        ServiceManager.doRequest(url:ServiceProperties.FORECAST,prm: prm, success: { (_ allResponse : AllResponse) in
+            success(allResponse)
+        }) { (error) in
+            print(error)
+        }
+    }
     func readCitiesFromLocalDB(callBack: @escaping()->()){
         LocalDataManager.readItems { (cityList) in
             self.fillDataList(list: cityList)
