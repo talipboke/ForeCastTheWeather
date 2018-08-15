@@ -2,34 +2,44 @@
 //  BaseTableVC.swift
 //  ForeCastTheWeather
 //
-//  Created by Mustafa on 15.08.2018.
+//  Created by Talip on 15.08.2018.
 //  Copyright © 2018 TalipBOKE. All rights reserved.
 //
 
 import UIKit
 
-class BaseTableVC: BaseVC {
-
+class BaseListVC: BaseVC,UITableViewDelegate,UITableViewDataSource {
+    
+    @IBOutlet weak var table:BaseTableView!
+    var viewModel:TableVM!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        delegateTable()
+        
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.table.tableFooterView = UIView()
+    }
+    func delegateTable(){
+        table.delegate = self
+        table.dataSource = self
+    }
+    func setTableViewProperties(){
+        self.table.tableFooterView = UIView()
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return viewModel.setUpTableCell(table: table, indexPath: indexPath)
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection(section: section)
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return viewModel.numberOfSections()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

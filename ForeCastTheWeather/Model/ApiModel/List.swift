@@ -20,5 +20,10 @@ class List:Codable{
     var sys : Sys!
     var dt_txt : String!
     
+    var dateAndHour:String!{
+        get{
+            return AppCommon.getDaysAndHours(dt_text: dt_txt)
+        }
+    }
     
 }

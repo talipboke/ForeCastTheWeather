@@ -17,4 +17,10 @@ class Main:Codable{
     var grnd_level : Double?
     var humidity : Double?
     var temp_kf : Double?
+    
+    var fullTemp:String!{
+        get{
+            return String(describing:temp_min!) + "-" + String(describing:temp!) + "-" + String(describing:temp_max!)
+        }
+    }
 }

@@ -2,34 +2,81 @@
 //  HomeVC.swift
 //  ForeCastTheWeather
 //
-//  Created by Mustafa on 14.08.2018.
+//  Created by Talip on 14.08.2018.
 //  Copyright © 2018 TalipBOKE. All rights reserved.
 //
 
 import UIKit
 
-class HomeVC: UIViewController {
 
+//class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
+
+class HomeVC: BaseListVC,UISearchBarDelegate{
+    
+    let APP_ID = "8827fbf408dc7e1418f3c1e84596334c"
+    let METRIC = "metric"
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        viewModel = TableVM(cellIdentifier: HomeCell.className)
+        ServiceManager.setHudSettings()
+        setSearchBarSettings()
+        
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //burada sürekli core datayı okuyup tableView'ı güncelleyebiliriz.
+        viewModel.readCitiesFromLocalDB {
+            self.table.reloadData()
+        }
+    }
+    func searchOnService(cityName:String){
+        let searchPostDTO = SearchPostDTO()
+        searchPostDTO.q = cityName //bu search datasından gelicek.
+        searchPostDTO.appid = APP_ID
+        searchPostDTO.units = METRIC
+        
+        var prm = [String:String]()
+        do{
+            prm = try JSONDecoder().decode([String: String].self, from: JSONEncoder().encode(searchPostDTO))
+            
+        }
+        catch{
+            print(error)
+        }
+        
+        //viewModel
+        ServiceManager.doRequest(url:ServiceProperties.FORECAST,prm: prm, success: { (_ allResponse : AllResponse) in
+            self.navigateToTimeIntervalsPage(allResponse: allResponse)
+        }) { (error) in
+            print(error)
+        }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.searchOnService(cityName: viewModel.getCurrentCityFromLocationManager(indexPathRow: indexPath.row))
+    }
+    func setSearchBarSettings(){
+        searchBar.delegate = self
+        searchBar.becomeFirstResponder()
+        searchBar.returnKeyType = UIReturnKeyType.done
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchBarText = searchBar.text
+        
+        if searchBarText != nil && searchBarText != ""{
+            self.searchOnService(cityName: searchBarText!)
+        }
+    }
+    func navigateToTimeIntervalsPage(allResponse:AllResponse){
+        let vc:TimeIntervalsVC = UIStoryboard.storyboard(storyboard: .main).instantiateVC()
+        vc.navItemTitle = allResponse.city?.name
+        vc.listArray = allResponse.list
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
