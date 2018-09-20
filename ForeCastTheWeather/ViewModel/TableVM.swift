@@ -10,6 +10,9 @@ import UIKit
 
 class TableVM: NSObject {
     
+    let APP_ID = "8827fbf408dc7e1418f3c1e84596334c"
+    let METRIC = "metric"
+    
     var dataList = [Codable]()
     var callBack : (()->())!
     var cellIdentifier:String!
@@ -31,7 +34,20 @@ class TableVM: NSObject {
         self.dataList = list
     }
     
-    func getWheatherForcast(prm:[String:Any],success: @escaping (_ response: AllResponse) -> ()){
+    func getWheatherForcast(cityName: String,success: @escaping (_ response: AllResponse) -> ()){
+        let searchPostDTO = SearchPostDTO()
+        searchPostDTO.q = cityName //bu search datasından gelicek.
+        searchPostDTO.appid = APP_ID
+        searchPostDTO.units = METRIC
+        
+        var prm = [String:String]()
+        do{
+            prm = try JSONDecoder().decode([String: String].self, from: JSONEncoder().encode(searchPostDTO))
+            
+        }
+        catch{
+            print(error)
+        }
         
         ServiceManager.doRequest(url:ServiceProperties.FORECAST,prm: prm, success: { (_ allResponse : AllResponse) in
             success(allResponse)

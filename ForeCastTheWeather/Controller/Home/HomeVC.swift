@@ -13,9 +13,6 @@ import UIKit
 
 class HomeVC: BaseListVC,UISearchBarDelegate{
     
-    let APP_ID = "8827fbf408dc7e1418f3c1e84596334c"
-    let METRIC = "metric"
-    
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
@@ -33,20 +30,7 @@ class HomeVC: BaseListVC,UISearchBarDelegate{
         }
     }
     func searchOnService(cityName:String){
-        let searchPostDTO = SearchPostDTO()
-        searchPostDTO.q = cityName //bu search datasından gelicek.
-        searchPostDTO.appid = APP_ID
-        searchPostDTO.units = METRIC
-        
-        var prm = [String:String]()
-        do{
-            prm = try JSONDecoder().decode([String: String].self, from: JSONEncoder().encode(searchPostDTO))
-            
-        }
-        catch{
-            print(error)
-        }
-        viewModel.getWheatherForcast(prm: prm) { (allResponse) in
+        viewModel.getWheatherForcast(cityName: cityName) { (allResponse) in
             self.navigateToTimeIntervalsPage(allResponse: allResponse)
         }
     }
