@@ -8,14 +8,13 @@
 
 import UIKit
 
-class BaseListVC<V:BaseListView>: BaseVC<V>,UITableViewDelegate,UITableViewDataSource {
+class BaseListVC<V:BaseListView,VM:BaseTableVM>: BaseVC<V>,UITableViewDelegate,UITableViewDataSource {
     
-    var viewModel:TableVM!
+    var viewModel:VM!  //Bu baseVC ' ye taşınacak ve her controller'ın bir VM 'i olucak
     
     override func viewDidLoad() {
         super.viewDidLoad()
         delegateTable()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimeIntervalsVC: BaseListVC<TimeIntervalsView> {
+class TimeIntervalsVC: BaseListVC<TimeIntervalsView,TimeIntervalsVM> {
 
     
     var navItemTitle:String?
@@ -16,12 +16,10 @@ class TimeIntervalsVC: BaseListVC<TimeIntervalsView> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = TableVM(cellIdentifier: TimeIntervalsCell.className)
+        viewModel = TimeIntervalsVM(cellIdentifier: TimeIntervalsCell.className)
         setViewProperties()
-        
         self.viewModel.fillDataList(list:listArray!)
         self.castedView.table.reloadData()
-        
     }
     func setViewProperties(){
         if let cityName = navItemTitle{

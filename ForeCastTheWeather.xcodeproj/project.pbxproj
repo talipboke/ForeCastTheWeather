@@ -35,7 +35,7 @@
 		45243AF5212391EB00EA5FE0 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243AF4212391EB00EA5FE0 /* BaseCell.swift */; };
 		45243AF9212392C000EA5FE0 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243AF8212392C000EA5FE0 /* BaseVC.swift */; };
 		45243AFB212392F100EA5FE0 /* BaseTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243AFA212392F100EA5FE0 /* BaseTableVC.swift */; };
-		45243AFE212393C300EA5FE0 /* TableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243AFD212393C300EA5FE0 /* TableVM.swift */; };
+		45243AFE212393C300EA5FE0 /* BaseTableVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243AFD212393C300EA5FE0 /* BaseTableVM.swift */; };
 		45243B0021239A1200EA5FE0 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243AFF21239A1200EA5FE0 /* NSObjectExtensions.swift */; };
 		45243B0321239F5800EA5FE0 /* ViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243B0221239F5800EA5FE0 /* ViewControllerExtensions.swift */; };
 		45243B0521239FDB00EA5FE0 /* LocalDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243B0421239FDB00EA5FE0 /* LocalDataManager.swift */; };
@@ -50,6 +50,8 @@
 		CB7014C021537D4800D00846 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014BF21537D4800D00846 /* HomeView.swift */; };
 		CB7014C221537D7800D00846 /* TimeIntervalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014C121537D7800D00846 /* TimeIntervalsView.swift */; };
 		CB7014C421537F6F00D00846 /* BaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014C321537F6F00D00846 /* BaseListView.swift */; };
+		CB7014C82153B4DA00D00846 /* HomeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014C72153B4DA00D00846 /* HomeVM.swift */; };
+		CB7014CA2153BE4400D00846 /* TimeIntervalsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014C92153BE4400D00846 /* TimeIntervalsVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +86,7 @@
 		45243AF4212391EB00EA5FE0 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		45243AF8212392C000EA5FE0 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		45243AFA212392F100EA5FE0 /* BaseTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVC.swift; sourceTree = "<group>"; };
-		45243AFD212393C300EA5FE0 /* TableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVM.swift; sourceTree = "<group>"; };
+		45243AFD212393C300EA5FE0 /* BaseTableVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableVM.swift; sourceTree = "<group>"; };
 		45243AFF21239A1200EA5FE0 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 		45243B0221239F5800EA5FE0 /* ViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtensions.swift; sourceTree = "<group>"; };
 		45243B0421239FDB00EA5FE0 /* LocalDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataManager.swift; sourceTree = "<group>"; };
@@ -99,6 +101,8 @@
 		CB7014BF21537D4800D00846 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CB7014C121537D7800D00846 /* TimeIntervalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalsView.swift; sourceTree = "<group>"; };
 		CB7014C321537F6F00D00846 /* BaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListView.swift; sourceTree = "<group>"; };
+		CB7014C72153B4DA00D00846 /* HomeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVM.swift; sourceTree = "<group>"; };
+		CB7014C92153BE4400D00846 /* TimeIntervalsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalsVM.swift; sourceTree = "<group>"; };
 		E45A8E98A691194E54537C31 /* Pods-ForeCastTheWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCastTheWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ForeCastTheWeather/Pods-ForeCastTheWeather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,10 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				CB7014BC215374B800D00846 /* Storyboard */,
-				CB7014BD2153758E00D00846 /* DetailView.swift */,
-				CB7014BF21537D4800D00846 /* HomeView.swift */,
-				CB7014C121537D7800D00846 /* TimeIntervalsView.swift */,
-				CB7014C321537F6F00D00846 /* BaseListView.swift */,
+				CB7014C6215394BF00D00846 /* ControllerView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,6 +270,7 @@
 		45243AF62123923600EA5FE0 /* BaseUIObjects */ = {
 			isa = PBXGroup;
 			children = (
+				CB7014C321537F6F00D00846 /* BaseListView.swift */,
 				45243AF2212391DC00EA5FE0 /* BaseTableView.swift */,
 				45243AF4212391EB00EA5FE0 /* BaseCell.swift */,
 			);
@@ -287,7 +289,9 @@
 		45243AFC2123931300EA5FE0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				45243AFD212393C300EA5FE0 /* TableVM.swift */,
+				45243AFD212393C300EA5FE0 /* BaseTableVM.swift */,
+				CB7014C72153B4DA00D00846 /* HomeVM.swift */,
+				CB7014C92153BE4400D00846 /* TimeIntervalsVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -349,6 +353,16 @@
 				45243AB821236FAF00EA5FE0 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CB7014C6215394BF00D00846 /* ControllerView */ = {
+			isa = PBXGroup;
+			children = (
+				CB7014BD2153758E00D00846 /* DetailView.swift */,
+				CB7014BF21537D4800D00846 /* HomeView.swift */,
+				CB7014C121537D7800D00846 /* TimeIntervalsView.swift */,
+			);
+			path = ControllerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,6 +490,7 @@
 				CB7014C221537D7800D00846 /* TimeIntervalsView.swift in Sources */,
 				45243AF3212391DC00EA5FE0 /* BaseTableView.swift in Sources */,
 				45243AD42123749800EA5FE0 /* City.swift in Sources */,
+				CB7014C82153B4DA00D00846 /* HomeVM.swift in Sources */,
 				45243AEC21238C0100EA5FE0 /* TimeIntervalsVC.swift in Sources */,
 				45243AE02123798900EA5FE0 /* Sys.swift in Sources */,
 				45243B082123AB2A00EA5FE0 /* SearchedCityDTO.swift in Sources */,
@@ -483,6 +498,7 @@
 				45243B0A2123B43700EA5FE0 /* TimeIntervalDTO.swift in Sources */,
 				45243AE321237BBF00EA5FE0 /* SearchPostDTO.swift in Sources */,
 				45243B112123BF8100EA5FE0 /* AppCommon.swift in Sources */,
+				CB7014CA2153BE4400D00846 /* TimeIntervalsVM.swift in Sources */,
 				45243B0521239FDB00EA5FE0 /* LocalDataManager.swift in Sources */,
 				45243ADA2123785800EA5FE0 /* Wheather.swift in Sources */,
 				45243B0021239A1200EA5FE0 /* NSObjectExtensions.swift in Sources */,
@@ -503,7 +519,7 @@
 				45243AE9212386A500EA5FE0 /* Rain.swift in Sources */,
 				45243AD62123773700EA5FE0 /* Coordinate.swift in Sources */,
 				45243AE721237F5600EA5FE0 /* StringExtensions.swift in Sources */,
-				45243AFE212393C300EA5FE0 /* TableVM.swift in Sources */,
+				45243AFE212393C300EA5FE0 /* BaseTableVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,16 +11,15 @@ import UIKit
 
 //class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-class HomeVC: BaseListVC<HomeView>,UISearchBarDelegate{
+class HomeVC: BaseListVC<HomeView,HomeVM>,UISearchBarDelegate{
     
     @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = TableVM(cellIdentifier: HomeCell.className)
+        viewModel = HomeVM(cellIdentifier: HomeCell.className)
         ServiceManager.setHudSettings()
         setSearchBarSettings()
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -30,7 +29,8 @@ class HomeVC: BaseListVC<HomeView>,UISearchBarDelegate{
         }
     }
     func searchOnService(cityName:String){
-        viewModel.getWheatherForcast(cityName: cityName) { (allResponse) in
+
+        viewModel.getWheatherForecast(cityName: cityName) { (allResponse) in
             self.navigateToTimeIntervalsPage(allResponse: allResponse)
         }
     }
