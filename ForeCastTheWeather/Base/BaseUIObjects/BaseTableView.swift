@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseTableView: UITableView {
+public class BaseTableView: UITableView {
     
-    func dequeue(identifier:String)-> BaseCell {
+    public func dequeue(identifier:String)-> BaseCell {
         return self.dequeueReusableCell(withIdentifier: identifier) as! BaseCell
     }
     

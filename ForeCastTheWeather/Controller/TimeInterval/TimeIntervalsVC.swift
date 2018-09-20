@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimeIntervalsVC: BaseListVC {
+class TimeIntervalsVC: BaseListVC<TimeIntervalsView> {
 
     
     var navItemTitle:String?
@@ -20,7 +20,7 @@ class TimeIntervalsVC: BaseListVC {
         setViewProperties()
         
         self.viewModel.fillDataList(list:listArray!)
-        self.table.reloadData()
+        self.castedView.table.reloadData()
         
     }
     func setViewProperties(){
@@ -29,7 +29,7 @@ class TimeIntervalsVC: BaseListVC {
             self.navigationItem.title = cityName
         }
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc:DetailVC = UIStoryboard.storyboard(storyboard: .main).instantiateVC()
         vc.list = self.listArray?[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
@@ -38,3 +38,4 @@ class TimeIntervalsVC: BaseListVC {
         super.didReceiveMemoryWarning()
     }
 }
+

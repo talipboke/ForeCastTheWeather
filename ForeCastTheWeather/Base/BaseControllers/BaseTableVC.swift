@@ -8,9 +8,8 @@
 
 import UIKit
 
-class BaseListVC: BaseVC,UITableViewDelegate,UITableViewDataSource {
+class BaseListVC<V:BaseListView>: BaseVC<V>,UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet weak var table:BaseTableView!
     var viewModel:TableVM!
     
     override func viewDidLoad() {
@@ -20,20 +19,23 @@ class BaseListVC: BaseVC,UITableViewDelegate,UITableViewDataSource {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.table.tableFooterView = UIView()
+        self.castedView.table.tableFooterView = UIView()
     }
     func delegateTable(){
-        table.delegate = self
-        table.dataSource = self
+        castedView.table.delegate = self
+        castedView.table.dataSource = self
     }
     func setTableViewProperties(){
-        self.table.tableFooterView = UIView()
+        self.castedView.table.tableFooterView = UIView()
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return viewModel.setUpTableCell(table: table, indexPath: indexPath)
+        return viewModel.setUpTableCell(table: castedView.table, indexPath: indexPath)
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section: section)
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return viewModel.numberOfSections()

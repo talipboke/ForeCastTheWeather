@@ -38,7 +38,7 @@
         <scene sceneID="NPA-yh-5Ix">
             <objects>
                 <viewController storyboardIdentifier="HomeVC" id="Ouh-3p-m8G" customClass="HomeVC" customModule="ForeCastTheWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="lxt-WO-BSY">
+                    <view key="view" contentMode="scaleToFill" id="lxt-WO-BSY" customClass="HomeView" customModule="ForeCastTheWeather" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -91,13 +91,15 @@
                             <constraint firstItem="IJi-cw-0Kl" firstAttribute="trailing" secondItem="C9e-2U-sOf" secondAttribute="trailing" id="up6-D8-7fM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IJi-cw-0Kl"/>
+                        <connections>
+                            <outlet property="table" destination="C9e-2U-sOf" id="ucp-3w-Cgh"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Hava Durumu Tahmini" id="8i7-hV-6Gv">
                         <barButtonItem key="backBarButtonItem" title="Geri" id="hev-gj-uXW"/>
                     </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="8kS-fU-6gk" id="lbp-aN-0uO"/>
-                        <outlet property="table" destination="C9e-2U-sOf" id="cJX-ba-fwJ"/>
                         <segue destination="jnS-yD-ikZ" kind="show" id="aaN-OQ-5a4"/>
                     </connections>
                 </viewController>
@@ -109,7 +111,7 @@
         <scene sceneID="fRv-LC-azx">
             <objects>
                 <viewController storyboardIdentifier="TimeIntervalsVC" id="jnS-yD-ikZ" customClass="TimeIntervalsVC" customModule="ForeCastTheWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gHL-vb-eEb">
+                    <view key="view" contentMode="scaleToFill" id="gHL-vb-eEb" customClass="TimeIntervalsView" customModule="ForeCastTheWeather" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -153,9 +155,11 @@
                             <constraint firstItem="rFj-sh-wZ3" firstAttribute="bottom" secondItem="LoM-mF-gXe" secondAttribute="bottom" id="laX-Xt-ISE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rFj-sh-wZ3"/>
+                        <connections>
+                            <outlet property="table" destination="LoM-mF-gXe" id="lse-ni-Qhm"/>
+                        </connections>
                     </view>
                     <connections>
-                        <outlet property="table" destination="LoM-mF-gXe" id="1sN-1J-3Kw"/>
                         <segue destination="x6Q-Vb-Abl" kind="show" id="LF9-sn-XT6"/>
                     </connections>
                 </viewController>
@@ -167,7 +171,7 @@
         <scene sceneID="rgA-ym-bOt">
             <objects>
                 <viewController storyboardIdentifier="DetailVC" id="x6Q-Vb-Abl" customClass="DetailVC" customModule="ForeCastTheWeather" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rmO-2A-qaC">
+                    <view key="view" contentMode="scaleToFill" id="rmO-2A-qaC" customClass="DetailView" customModule="ForeCastTheWeather" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -328,17 +332,17 @@
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UUz-Lf-7kr" secondAttribute="trailing" constant="20" symbolic="YES" id="yOr-Fy-fX9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dfl-VW-cBh"/>
+                        <connections>
+                            <outlet property="hummadityLbl" destination="SOr-K0-E21" id="MI3-S2-LaN"/>
+                            <outlet property="pressureLbl" destination="IQw-Ek-Ypm" id="kAZ-Uy-VPw"/>
+                            <outlet property="seeRateLbl" destination="UUz-Lf-7kr" id="OAU-rX-dRk"/>
+                            <outlet property="temperatureLbl" destination="188-ku-WkZ" id="wf3-rN-zBJ"/>
+                        </connections>
                     </view>
-                    <connections>
-                        <outlet property="hummadityLbl" destination="SOr-K0-E21" id="W51-7h-xEA"/>
-                        <outlet property="pressureLbl" destination="IQw-Ek-Ypm" id="laa-LM-TDM"/>
-                        <outlet property="seeRateLbl" destination="UUz-Lf-7kr" id="txS-mG-8s7"/>
-                        <outlet property="temperatureLbl" destination="188-ku-WkZ" id="c75-Hv-4vu"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yb1-ln-CT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312.80000000000001" y="-349.47526236881561"/>
+            <point key="canvasLocation" x="322" y="-349"/>
         </scene>
     </scenes>
 </document>

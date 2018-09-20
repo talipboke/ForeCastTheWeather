@@ -8,7 +8,13 @@
 
 import UIKit
 
-class BaseVC: UIViewController {
+class BaseVC<V:UIView>: UIViewController {
+    
+    public var castedView: V! {
+        guard isViewLoaded else { return nil }
+        return view as! V
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()

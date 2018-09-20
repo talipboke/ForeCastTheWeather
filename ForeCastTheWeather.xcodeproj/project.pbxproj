@@ -46,6 +46,10 @@
 		45243B142123C12D00EA5FE0 /* DesignableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243B132123C12D00EA5FE0 /* DesignableExtensions.swift */; };
 		45243B162123C1A800EA5FE0 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45243B152123C1A800EA5FE0 /* CustomImageView.swift */; };
 		528BA6FE8AC7244043D118FB /* Pods_ForeCastTheWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BED15A1E63B8A1F9C5C54FB /* Pods_ForeCastTheWeather.framework */; };
+		CB7014BE2153758E00D00846 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014BD2153758E00D00846 /* DetailView.swift */; };
+		CB7014C021537D4800D00846 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014BF21537D4800D00846 /* HomeView.swift */; };
+		CB7014C221537D7800D00846 /* TimeIntervalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014C121537D7800D00846 /* TimeIntervalsView.swift */; };
+		CB7014C421537F6F00D00846 /* BaseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7014C321537F6F00D00846 /* BaseListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +95,10 @@
 		45243B132123C12D00EA5FE0 /* DesignableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableExtensions.swift; sourceTree = "<group>"; };
 		45243B152123C1A800EA5FE0 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		6215B305C206F351DAF76494 /* Pods-ForeCastTheWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCastTheWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-ForeCastTheWeather/Pods-ForeCastTheWeather.release.xcconfig"; sourceTree = "<group>"; };
+		CB7014BD2153758E00D00846 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		CB7014BF21537D4800D00846 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CB7014C121537D7800D00846 /* TimeIntervalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalsView.swift; sourceTree = "<group>"; };
+		CB7014C321537F6F00D00846 /* BaseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseListView.swift; sourceTree = "<group>"; };
 		E45A8E98A691194E54537C31 /* Pods-ForeCastTheWeather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForeCastTheWeather.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ForeCastTheWeather/Pods-ForeCastTheWeather.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,8 +164,11 @@
 		45243AC121236FC600EA5FE0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				45243AB021236FAE00EA5FE0 /* Main.storyboard */,
-				45243AB821236FAF00EA5FE0 /* LaunchScreen.storyboard */,
+				CB7014BC215374B800D00846 /* Storyboard */,
+				CB7014BD2153758E00D00846 /* DetailView.swift */,
+				CB7014BF21537D4800D00846 /* HomeView.swift */,
+				CB7014C121537D7800D00846 /* TimeIntervalsView.swift */,
+				CB7014C321537F6F00D00846 /* BaseListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -331,6 +342,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CB7014BC215374B800D00846 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				45243AB021236FAE00EA5FE0 /* Main.storyboard */,
+				45243AB821236FAF00EA5FE0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -446,12 +466,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				45243AC421236FF100EA5FE0 /* HomeVC.swift in Sources */,
+				CB7014BE2153758E00D00846 /* DetailView.swift in Sources */,
 				45243AF021238D7900EA5FE0 /* StoryBoardExtensions.swift in Sources */,
 				45243AEE21238C1E00EA5FE0 /* TimeIntervalsCell.swift in Sources */,
 				45243AF5212391EB00EA5FE0 /* BaseCell.swift in Sources */,
 				45243AD2212373F900EA5FE0 /* List.swift in Sources */,
 				45243AD8212377BB00EA5FE0 /* Main.swift in Sources */,
 				45243ADC212378D300EA5FE0 /* Cloud.swift in Sources */,
+				CB7014C221537D7800D00846 /* TimeIntervalsView.swift in Sources */,
 				45243AF3212391DC00EA5FE0 /* BaseTableView.swift in Sources */,
 				45243AD42123749800EA5FE0 /* City.swift in Sources */,
 				45243AEC21238C0100EA5FE0 /* TimeIntervalsVC.swift in Sources */,
@@ -466,7 +488,9 @@
 				45243B0021239A1200EA5FE0 /* NSObjectExtensions.swift in Sources */,
 				45243AB521236FAE00EA5FE0 /* ForeCastTheWeather.xcdatamodeld in Sources */,
 				45243AC72123709300EA5FE0 /* HomeCell.swift in Sources */,
+				CB7014C421537F6F00D00846 /* BaseListView.swift in Sources */,
 				45243ADE2123790C00EA5FE0 /* Wind.swift in Sources */,
+				CB7014C021537D4800D00846 /* HomeView.swift in Sources */,
 				45243B0D2123B98500EA5FE0 /* DetailVC.swift in Sources */,
 				45243AAD21236FAE00EA5FE0 /* AppDelegate.swift in Sources */,
 				45243B162123C1A800EA5FE0 /* CustomImageView.swift in Sources */,

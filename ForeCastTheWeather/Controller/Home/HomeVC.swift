@@ -11,7 +11,7 @@ import UIKit
 
 //class HomeVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-class HomeVC: BaseListVC,UISearchBarDelegate{
+class HomeVC: BaseListVC<HomeView>,UISearchBarDelegate{
     
     @IBOutlet weak var searchBar: UISearchBar!
     
@@ -26,7 +26,7 @@ class HomeVC: BaseListVC,UISearchBarDelegate{
         super.viewWillAppear(animated)
         //burada sürekli core datayı okuyup tableView'ı güncelleyebiliriz.
         viewModel.readCitiesFromLocalDB {
-            self.table.reloadData()
+            self.castedView.table.reloadData()
         }
     }
     func searchOnService(cityName:String){
@@ -34,7 +34,7 @@ class HomeVC: BaseListVC,UISearchBarDelegate{
             self.navigateToTimeIntervalsPage(allResponse: allResponse)
         }
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.searchOnService(cityName: viewModel.getCurrentCityFromLocationManager(indexPathRow: indexPath.row))
     }
     func setSearchBarSettings(){
