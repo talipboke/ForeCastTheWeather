@@ -92,6 +92,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IJi-cw-0Kl"/>
                         <connections>
+                            <outlet property="searchBar" destination="8kS-fU-6gk" id="zt7-X9-zVQ"/>
                             <outlet property="table" destination="C9e-2U-sOf" id="ucp-3w-Cgh"/>
                         </connections>
                     </view>
@@ -99,7 +100,6 @@
                         <barButtonItem key="backBarButtonItem" title="Geri" id="hev-gj-uXW"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="8kS-fU-6gk" id="lbp-aN-0uO"/>
                         <segue destination="jnS-yD-ikZ" kind="show" id="aaN-OQ-5a4"/>
                     </connections>
                 </viewController>

@@ -8,5 +8,5 @@
 
 import UIKit
 
-public class HomeView : BaseListView{
+public class HomeView : BaseSearchListView{
 }
